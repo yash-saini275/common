@@ -4,8 +4,9 @@ import 'express-async-errors';
 import {errorHandler, NotFoundError} from './index';
 
 class App {
-  private app: Express = express();
+  private app: Express;
   constructor(private routes: Router[], private middlewares: any[]) {
+    this.app = express.default();
     this.app.set('trust proxy', true);
 
     // Configure Middlewares
